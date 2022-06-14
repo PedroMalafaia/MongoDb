@@ -8,6 +8,28 @@
 </head>
 <body>
     <h3>Codôminos</h3>
-    <a href="/"> <button type="submit">Registar</button> </a>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Complemento</td>
+                <td>Vencimento</td>
+                <td>situacao</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% bancocond.forEach(function(details){ %>
+                <tr>
+                    <td><%= details.name %></td>
+                    <td><%= details.complemento %></td>
+                    <td><%= details.vencimento %></td>
+                    <td><%= details.situacao %></td>
+
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/"> <button type="submit">Registar</button> </a> 
+    
 </body>
 </html>

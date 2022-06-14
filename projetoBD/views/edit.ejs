@@ -8,17 +8,21 @@
 </head>
 <body>
     <h2>Editar Registro</h2> 
-    <% data.forEach(function(details) { %> 
+    <% bancocond.forEach(function(details) { %> 
         <form action="/edit/<%= details._id %>" method="POST"> 
-        Nome e sobrenome    <input type="text" value="<%= details.name %>" name="name"> 
+        Nome e sobrenome: <input type="text" value="<%= details.name %>" name="name"> 
             <input type="text" value="<%= details.surname %>" name="surname"> </br> </br>
         Celular: <input type="text" value="<%= details.celular%>" name="celular"></br></br>
         CPF: <input type="text" value="<%= details.cpf %>" name="cpf"></br></br>
         RG: <input type="text" value="<%= details.rg %>" name="rg"></br></br>
         E-mail: <input type="email" value="<%= details.email %>" name="email"></br></br>
         Complemento: <input type="text" value="<%= details.complemento %>" name="complemento"></br></br>
+        Vencimento: <input type="date" value="<%= details.vencimento %>" name="vencimento"></br></br>
+        Situação: <input type="radio" value="<%= details.situação %>" name="situação"> Pago</br>
+        <input type="radio" value="<%= details.situação %>" name="situação"> Pendente</br>
             <button><a href="/show">Todos</a></button>
-            <button type="submit">Editar</button> </form>
+            <button type="submit">Editar</button> 
+        </form>
             <% }) %> 
 </body>
 </html>

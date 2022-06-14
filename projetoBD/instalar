@@ -1,6 +1,0 @@
-npm init 
-npm install express 
-npm install ejs 
-npm instal nodemon
-npm run dev
-npm install mongodb

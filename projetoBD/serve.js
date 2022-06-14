@@ -14,12 +14,15 @@ app.use(express.urlencoded({extended:true}))
 app.get('/', (req, res) =>{
     res.render('index.ejs')
 })
-app.get('/home', (req, res) =>{
-    res.render('home.ejs')
+app.get('/opcoes', (req, res) =>{
+    res.render('opcoes.ejs')
 })
 app.get('/', (req, res) =>{
-    let cuso = db.collection('bancocond').find()
+    let cursor = db.collection('bancocond').find()
 })
+/*app.get('/home', (req, res) =>{
+    let cursor = db.collection('bancocond').find()
+})*/
 
 
 
@@ -27,7 +30,7 @@ app.post('/show', (req, res) =>{
     db.collection('bancocond').insertOne(req.body, (err,result) =>{
         if(err) return console.log(err)
         console.log("salvou no banco")
-        res.redirect('show.ejs')
+        res.redirect('/opcoes')
         db.collection('bancocond').find().toArray((err, results)=>{
             console.log(results)
         })
@@ -54,26 +57,35 @@ app.get('/show', (req, res) =>{
     })
 })
 
+app.get('/home', (req, res) =>{
+    db.collection('bancocond').find().toArray((err, results) =>{
+        if(err) return console.log(err)
+        res.render('home.ejs', {bancocond: results})
+    })
+})
+
 //criando a nosso rota 
 app.route("/edit/:id")
 .get((req, res) => {
     var id = req.params.id
 
-    db.collection('bancocond').find(objectId(id)).toArray((err, results) =>{
+    db.collection('bancocond').find(ObjectId(id)).toArray((err, result) =>{
         if(err) return res.send(err)
-        res.render('edit.ejs', {bancocond: results})
+        res.render('edit.ejs', {bancocond: result})
     })
 })
 
 .post((req, res) =>{
     var id = req.params.id
-    var name = req.params.name
-    var surname = req.params.surname
-    var celular = req.params.celular
-    var cpf = req.params.cpf
-    var rg = req.params.rg
-    var email = req.params.email
-    var complemento = req.params.complemento
+    var name = req.body.name
+    var surname = req.body.surname
+    var celular = req.body.celular
+    var cpf = req.body.cpf
+    var rg = req.body.rg
+    var email = req.body.email
+    var complemento = req.body.complemento
+    var vencimento = req.body.vencimento
+    var situacao = req.body.situacao
 
     db.collection('bancocond').updateOne({_id: ObjectId(id)},{
         $set: {
@@ -89,5 +101,16 @@ app.route("/edit/:id")
         if(err) return res.send(err)
         res.redirect('/show')
         console.log('banco atualizado')
+    })
+})
+
+app.route("/delete/:id")
+.get((req, res) => {
+    var id = req.params.id
+
+    db.collection('bancocond').deleteOne({_id: ObjectId(id)}, (err, result) =>{
+        if(err) return res.send(500, err)
+        console.log('Deletando do nosso banco de dados!')
+        res.redirect('/show')
     })
 })
