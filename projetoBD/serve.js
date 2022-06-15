@@ -86,6 +86,8 @@ app.route("/edit/:id")
     var complemento = req.body.complemento
     var vencimento = req.body.vencimento
     var situacao = req.body.situacao
+    var pago = req.body.pago
+    var pendente = req.body.pendente
 
     db.collection('bancocond').updateOne({_id: ObjectId(id)},{
         $set: {
@@ -95,7 +97,11 @@ app.route("/edit/:id")
             cpf: cpf,
             rg: rg,
             email: email,
-            complemento: complemento
+            complemento: complemento,
+            vencimento: vencimento,
+            situacao: situacao,
+            pago: pago,
+            pendente: pendente
         }
     }, (err, result) =>{
         if(err) return res.send(err)

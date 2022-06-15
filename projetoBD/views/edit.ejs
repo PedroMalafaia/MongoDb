@@ -17,12 +17,12 @@
         RG: <input type="text" value="<%= details.rg %>" name="rg"></br></br>
         E-mail: <input type="email" value="<%= details.email %>" name="email"></br></br>
         Complemento: <input type="text" value="<%= details.complemento %>" name="complemento"></br></br>
-        Vencimento: <input type="date" value="<%= details.vencimento %>" name="vencimento"></br></br>
-        Situação: <input type="radio" value="<%= details.situação %>" name="situação"> Pago</br>
-        <input type="radio" value="<%= details.situação %>" name="situação"> Pendente</br>
+        Vencimento: <input type="number" value="<%= details.vencimento %>" name="vencimento"></br></br>
+        Situação: <input type="radio"  id="<%= details.pago %>" value="Pago"  name="pago"> Pago </br>
+                  <input type="radio"  id="<%= details.pendente %>" value="Pendente"  name="pendente"> Pendente </br>
+                  
             <button><a href="/show">Todos</a></button>
             <button type="submit">Editar</button> 
         </form>
             <% }) %> 
 </body>
-</html>

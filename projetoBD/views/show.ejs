@@ -18,8 +18,8 @@
                 <td>RG</td>
                 <td>E-mail</td>
                 <td>Complemento</td>
-                <td>vencimento</td>
-                <td>Situacao</td>
+                <td>Vencimento</td>
+                <td>Situação</td>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
                     <td><%= details.email %></td>
                     <td><%= details.complemento %></td>
                     <td><%= details.vencimento %></td>
-                    <td><%= details.situacao %></td>
+                    <td><%= details.pago %> <%= details.pendente %></td>
                     <td><a href="/edit/<%= details._id %>">Editar</a> - <a href="/delete/<%= details._id %>">Deletar</a></td>
                 </tr>
             <% }) %>
