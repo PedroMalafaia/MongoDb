@@ -85,7 +85,6 @@ app.route("/edit/:id")
     var email = req.body.email
     var complemento = req.body.complemento
     var vencimento = req.body.vencimento
-    var situacao = req.body.situacao
     var pago = req.body.pago
     var pendente = req.body.pendente
 
@@ -99,7 +98,6 @@ app.route("/edit/:id")
             email: email,
             complemento: complemento,
             vencimento: vencimento,
-            situacao: situacao,
             pago: pago,
             pendente: pendente
         }
