@@ -63,6 +63,12 @@ app.get('/home', (req, res) =>{
         res.render('home.ejs', {bancocond: results})
     })
 })
+//static file
+
+app.use(express.static('public'))
+app.use('/css', express.static(__dirname +'public/css'))
+app.use('/js', express.static(__dirname +'public/js'))
+app.use('/img', express.static(__dirname +'public/img'))
 
 //criando a nosso rota 
 app.route("/edit/:id")

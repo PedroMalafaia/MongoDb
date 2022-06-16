@@ -1,0 +1,41 @@
+#body{
+    background-color:aqua;
+    background-image: url("../img/adm-de-condominios-920x380.jpg");
+    background-size: 130%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: absolute;
+}
+#bodyshow{
+    background-color:aqua;
+    background-image: url("../img/adm-de-condominios-920x380.jpg");
+    background-size: 130%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+#bodyhome{
+    background-color:aqua;
+    background-image: url("../img/adm-de-condominios-920x380.jpg");
+    background-size: 130%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+.form-group{
+    margin-top: 100px;
+    margin-left: 70px;
+}
+input{
+    border-radius: 5px;
+    background-color: rgb(245, 245, 236);
+    align-items: baseline;
+}
+.btn{
+    margin-left: 70px;
+    margin-top: 20px;
+}
+nav{
+    margin-top: 60px;
+}
+
+.table{
+   width: min-content;
+}
